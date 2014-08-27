@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+	<% flash.each do |name, msg| %>
+		<% if flash[:notice] %>
+    	<%= content_tag :div, msg, class: "alert alert-info centered" %>
+		<% else %>
+    	<%= content_tag :div, msg, class: "alert alert-warning centered" %>
+		<% end %>
+  <% end %>
+	<%= yield %>
+</div>
 
 </body>
 </html>

@@ -13,6 +13,8 @@ gem "pg", :group => :production
 
 gem 'mysql2', :group => :development
 
+gem 'haml'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
