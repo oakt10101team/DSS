@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+	background-color: #F5F5F5;
+}
+
 #home-page-container {
 	background: url("bg.jpg") no-repeat;
-background-size: 100%;
-position: fixed;
-top: 0;
-min-width: 86%;
-min-height: 100%;
+	background-size: 100%;
+	position: fixed;
+	top: 0;
+	min-width: 86%;
+	min-height: 100%;
 }
 
 .nav-box {
@@ -32,7 +36,7 @@ min-height: 100%;
 	background: rgba(255, 255, 255, 0.7);
 }
 
-.search-box input {
+#home-page-container .search-box input {
 	border: 1px solid #91BF00;
 	width: 245px;
 	height: 44px;	
@@ -41,18 +45,18 @@ min-height: 100%;
 	font-size: 22px;
 }
 
-#procedure {
+#home-page-container #procedure {
 	margin: 40px 0 0 30px;
 }
 
-span.in {
+#home-page-container span.in {
 	color: #91BF00;
 	font-weight: bold;
 	font-size: 24px;
 	margin: 10px;
 }
 
-button {
+#home-page-container button {
 	background-color: #91BF00;
 	border: 0px;
 	width: 177px;
@@ -61,7 +65,77 @@ button {
 	font-size: 20px;
 }
 
-.search-button {
+#home-page-container .search-button {
 	float: right;
 	margin: 15px 37px 0 0;
+}
+
+#results-page.nav-bar {
+	background: url("header_bg.png") repeat-x;
+	height: 97px;
+	width: 100%;
+	margin-left: -85px;
+	position: absolute;
+}
+
+#results-page .top-nav-box {
+	display: inline-block;
+	float: right;
+	margin: 5px 85px 0 0;
+	padding: 8px;
+	color: #ffffff;
+	font-size: 18px;
+}
+
+#results-page .top-search-box {
+	display: inline-block;
+	position: relative;
+	left: 15%;
+	margin-top: 5px;
+}
+
+#results-page .top-search-box input {
+	border: 1px solid #91BF00;
+	width: 225px;
+	height: 40px;
+	text-align: center;
+	color: #B9B9B9;
+	font-size: 22px;
+	margin-left: 5px;
+}
+
+#results-page .top-search-box button {
+	background-color: #919191;
+	border: 0px;
+	width: 125px;
+	height: 40px;
+	color: #fff;
+	font-size: 20px;
+}
+
+#results-page .nav-menu {
+	text-align: center;
+}
+
+#results-page .nav-menu a {
+	color: #ffffff;
+	font-size: 18px;
+}
+
+#results-page .nav-menu ul li {
+	margin: 10px 0 0 35px;
+}
+
+#results-page .nav > li > a:hover, #results-page .nav > li > a:focus {
+	text-decoration: none;
+	background-color: #F5F5F5;
+	color: #515151;
+}
+
+#search-content {
+	margin-top: 15px;
+}
+
+#search-content .col-md-4 {
+	padding-left: 65px;
 }

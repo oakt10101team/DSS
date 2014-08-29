@@ -1,0 +1,36 @@
+#results-page.nav-bar
+	.container
+		.top-search-box
+			= text_field_tag :procedure, "Botox"
+			= text_field_tag :city, "10018"
+			%button.search-button SEARCH
+		.top-nav-box
+			Sign Up | Login | Vendors
+
+		.nav-menu
+			%ul.nav.nav-pills
+				%li
+					%a{href: "#."} Home
+				%li
+					%a{href: "#."} Favorites
+				%li
+					%a{href: "#."} Sale
+				%li
+					%a{href: "#."} Reviews
+				%li
+					%a{href: "#."} Trending
+				%li
+					%a{href: "#."} Browse
+				%li
+					%a{href: "#."} New
+				%li
+					%a{href: "#."} Post
+				%li
+					%a{href: "#."} Learn
+
+		.row#search-content
+			.col-md-4
+				= image_tag 'map.png'
+			.col-md-8
+				efewf
+
