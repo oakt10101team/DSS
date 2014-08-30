@@ -31,6 +31,101 @@
 		.row#search-content
 			.col-md-4
 				= image_tag 'map.png'
+				%br
+				%br
+				.form-group
+					%label Search By Name
+					= text_field_tag :name, "D Beauty"
+				.form-group
+					%label{style: "font-weight: normal;"} Filter By
+				.form-group
+					%label Star Rating
+					%br
+					%input{:type => "checkbox"} 
+					.stars
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+					%br
+					%input{:type => "checkbox"} 
+					.stars
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+					%br
+					%input{:type => "checkbox"} 
+					.stars
+						= image_tag "star.png"
+						= image_tag "star.png"
+						= image_tag "star.png"
+					%br
+					%input{:type => "checkbox"} 
+					.stars
+						= image_tag "star.png"
+						= image_tag "star.png"
+					%br
+					%input{:type => "checkbox"} 
+					.stars
+						= image_tag "star.png"
+
+				.form-group
+					%label Price
+					%br
+					%input{:type => "checkbox"} 
+					>$100
+					%br
+					%input{:type => "checkbox"} 
+					>$200
+					%br
+					%input{:type => "checkbox"} 
+					>$300
+					%br
+					%input{:type => "checkbox"} 
+					>$400
+				.form-group
+					%label Administered By
+					%br
+					%input{:type => "checkbox"} 
+					Dermatologist
+					%br
+					%input{:type => "checkbox"} 
+					MD
+					%br
+					%input{:type => "checkbox"} 
+					PA
+					
 			.col-md-8
-				efewf
+				#results
+					.sort-box
+						.sort-box-inner
+							%span.pull-left{style: "margin-left: 40px;"}	Sort By: 
+
+							%ul.nav.nav-pills
+								%li
+									Rating
+								%li
+									Price
+								%li
+									Most Popular
+
+					.result-box
+						.result-image.pull-left
+							= image_tag "result-image.png"
+						.result-info
+							%span.doctor-name
+								D Beauty Spa 
+							%br
+							%span.map
+								= image_tag "bullet.png"
+								Map
+							%br
+							.price
+								$533 $545
+							.booking
+								BOOK NOW>>
+
+
 
