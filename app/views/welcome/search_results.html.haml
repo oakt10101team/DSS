@@ -1,16 +1,18 @@
 #results-page.nav-bar
 	.container
 		.top-search-box
-			= text_field_tag :procedure, "Botox"
-			= text_field_tag :city, "10018"
-			%button.search-button SEARCH
+			= form_tag search_results_path, method: :get do
+				= select_tag(:procedure, options_for_select(@procedures.collect {|p| [ p.name, p.id ] }.insert(0, ["Select Procedure" , ""]), selected: params[:procedure] ) )
+				= text_field_tag :city, params[:city], :placeholder => "City"
+				= submit_tag 'SEARCH', name: nil, class: 'search-button'
+
 		.top-nav-box
 			Sign Up | Login | Vendors
 
 		.nav-menu
 			%ul.nav.nav-pills
 				%li
-					%a{href: "#."} Home
+					%a{href: "/"} Home
 				%li
 					%a{href: "#."} Favorites
 				%li
@@ -35,7 +37,7 @@
 				%br
 				.form-group
 					%label Search By Name
-					= text_field_tag :name, "D Beauty"
+					= text_field_tag :name, nil, :placeholder => "Doctor Name"
 				.form-group
 					%label{style: "font-weight: normal;"} Filter By
 				.form-group
@@ -111,21 +113,26 @@
 								%li
 									Most Popular
 
-					.result-box
-						.result-image.pull-left
-							= image_tag "result-image.png"
-						.result-info
-							%span.doctor-name
-								D Beauty Spa 
-							%br
-							%span.map
-								= image_tag "bullet.png"
-								Map
-							%br
-							.price
-								$533 $545
-							.booking
-								BOOK NOW>>
+					- if @doctors.blank?
+						.result-box
+							%h3{style: "text-align: center;"} No Doctor Found
+					- else
+						- @doctors.each do |doctor|
+							.result-box
+								.result-image.pull-left
+									= image_tag "result-image.png"
+								.result-info
+									%span.doctor-name
+										= doctor.name
+									%br
+									%span.map
+										= image_tag "bullet.png"
+										Map
+									%br
+									.price
+										$533 $545
+									.booking
+										BOOK NOW>>
 
 
 

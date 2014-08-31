@@ -36,13 +36,14 @@ html, body {
 	background: rgba(255, 255, 255, 0.7);
 }
 
-#home-page-container .search-box input[type="text"] {
+#home-page-container .search-box select[name="procedure"], #home-page-container .search-box input[type="text"]  {
 	border: 1px solid #91BF00;
 	width: 245px;
 	height: 44px;	
 	text-align: center;
 	color: #B9B9B9;
 	font-size: 22px;
+	background-color: #ffffff;
 }
 
 #home-page-container #procedure {
@@ -56,7 +57,7 @@ html, body {
 	margin: 10px;
 }
 
-#home-page-container button {
+#home-page-container button,  #home-page-container .search-button{
 	background-color: #91BF00;
 	border: 0px;
 	width: 177px;
@@ -94,7 +95,7 @@ html, body {
 	margin-top: 5px;
 }
 
-#results-page .top-search-box input[type="text"] {
+#results-page .top-search-box input[type="text"], #results-page .top-search-box select[name="procedure"] {
 	border: 1px solid #91BF00;
 	width: 225px;
 	height: 40px;
@@ -102,9 +103,10 @@ html, body {
 	color: #B9B9B9;
 	font-size: 22px;
 	margin-left: 5px;
+	background-color: #ffffff;
 }
 
-#results-page .top-search-box button {
+#results-page .top-search-box .search-button {
 	background-color: #919191;
 	border: 0px;
 	width: 125px;

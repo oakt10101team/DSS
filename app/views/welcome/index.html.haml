@@ -5,10 +5,11 @@
 
 
 	.search-box
-		= text_field_tag :procedure, "Botox"
-		%span.in in
-		= text_field_tag :city, "10018"
+		= form_tag search_results_path, method: :get do
+			= select_tag(:procedure, options_for_select(@procedures.collect {|p| [ p.name, p.id ] }.insert(0, ["Select Procedure" , ""]), selected: params[:procedure] ) )
+			%span.in in
+			= text_field_tag :city, nil, :placeholder => "City"
 
-		%button Sort By
-		.clearfix
-		%button.search-button SEARCH
+			%button Sort By
+			.clearfix
+			= submit_tag 'SEARCH', name: nil, class: 'search-button'
