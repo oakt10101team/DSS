@@ -63,13 +63,17 @@ html, body {
 	margin: 10px;
 }
 
-#home-page-container button,  #home-page-container .search-button{
+#home-page-container select,  #home-page-container .search-button{
 	background-color: #91BF00;
 	border: 0px;
 	width: 177px;
-	height: 44px;
+	height: 45px;
 	color: #fff;
 	font-size: 20px;
+}
+
+#home-page-container select {
+	padding-left: 50px;
 }
 
 #home-page-container .search-button {
@@ -181,15 +185,16 @@ label {
 
 #results .sort-box .sort-box-inner {
 	font-size: 16px;
-	padding: 12px;
 }
 
 #results .sort-box .sort-box-inner ul {
 	margin-left: 100px;
+	margin-top: -5px;
 }
 
 #results .sort-box .sort-box-inner ul li {
-	padding-left: 100px;
+	margin-left: 100px;
+	padding: 14px;
 }
 
 #results .result-box {
@@ -203,6 +208,7 @@ label {
 	font-size: 18px;
 	color: #91BF00;
 	padding: 10px;
+	vertical-align: bottom;
 }
 
 .result-box .result-info {
@@ -235,4 +241,9 @@ label {
 .form-panel-heading {
 	background-color: #91BF00 !important;
 	border-color: #91BF00 !important;
+}
+
+.star {
+	display: inline;
+	vertical-align: super;
 }

@@ -1,5 +1,6 @@
 DSS::Application.routes.draw do
   
+  post '/rate' => 'rater#create', :as => 'rate'
   root 'welcome#index'
   get 'search_results' => 'welcome#search_results'
   devise_for :users

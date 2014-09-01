@@ -15,7 +15,6 @@
 			= select_tag(:procedure, options_for_select(@procedures.collect {|p| [ p.name, p.id ] }.insert(0, ["Select Procedure" , ""]), selected: params[:procedure] ) )
 			%span.in in
 			= text_field_tag :city, nil, :placeholder => "City"
-
-			%button Sort By
+			= select_tag(:order, options_for_select([["Sort By" , ""], ['Rating', 'rating'], ['Price', 'price'], ['Popularity', 'popularity']]))
 			.clearfix
 			= submit_tag 'SEARCH', name: nil, class: 'search-button'

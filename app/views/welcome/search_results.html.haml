@@ -72,14 +72,14 @@
 		#results
 			.sort-box
 				.sort-box-inner
-					%span.pull-left{style: "margin-left: 40px;"}	Sort By: 
+					%span.pull-left{style: "margin-left: 40px;padding: 18px;"}	Sort By: 
 
 					%ul.nav.nav-pills
-						%li
+						%li{ style: "#{'border-top: 5px solid #515151;' if params[:order] == 'rating'}" } 
 							Rating
-						%li
+						%li{ style: "#{'border-top: 5px solid #515151;' if params[:order] == 'price'}" } 
 							Price
-						%li
+						%li{ style: "#{'border-top: 5px solid #515151;' if params[:order] == 'popularity'}" } 
 							Most Popular
 
 			- if @doctors.blank?
@@ -93,13 +93,14 @@
 						.result-info
 							%span.doctor-name
 								= doctor.name
+							= rating_for doctor
 							%br
 							%span.map
 								= image_tag "bullet.png"
 								Map
 							%br
 							.price
-								$533 $545
+								= number_to_currency(doctor.fee)
 							.booking
 								BOOK NOW>>
 
