@@ -1,7 +1,13 @@
 #home-page-container
 
 	.nav-box
-		SIGN UP | LOGIN | VENDORS
+		- if current_user
+			= link_to "Sign Out", destroy_user_session_path, method: :delete
+		- else
+			= link_to 'SIGN UP', new_user_registration_path
+			|
+			= link_to 'LOGIN', new_user_session_path
+		| VENDORS
 
 
 	.search-box

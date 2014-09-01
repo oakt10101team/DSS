@@ -9,6 +9,9 @@ gem 'devise'
 # twitter bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 
+# gem for rating
+gem 'letsrate'
+
 gem "pg", :group => :production
 
 gem 'mysql2', :group => :development

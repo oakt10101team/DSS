@@ -1,138 +1,107 @@
-#results-page.nav-bar
-	.container
-		.top-search-box
-			= form_tag search_results_path, method: :get do
-				= select_tag(:procedure, options_for_select(@procedures.collect {|p| [ p.name, p.id ] }.insert(0, ["Select Procedure" , ""]), selected: params[:procedure] ) )
-				= text_field_tag :city, params[:city], :placeholder => "City"
-				= submit_tag 'SEARCH', name: nil, class: 'search-button'
 
-		.top-nav-box
-			Sign Up | Login | Vendors
+.row#search-content
+	.col-md-4
+		= image_tag 'map.png'
+		%br
+		%br
+		.form-group
+			%label Search By Name
+			= text_field_tag :name, nil, :placeholder => "Doctor Name"
+		.form-group
+			%label{style: "font-weight: normal;"} Filter By
+		.form-group
+			%label Star Rating
+			%br
+			%input{:type => "checkbox"} 
+			.stars
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+			%br
+			%input{:type => "checkbox"} 
+			.stars
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+			%br
+			%input{:type => "checkbox"} 
+			.stars
+				= image_tag "star.png"
+				= image_tag "star.png"
+				= image_tag "star.png"
+			%br
+			%input{:type => "checkbox"} 
+			.stars
+				= image_tag "star.png"
+				= image_tag "star.png"
+			%br
+			%input{:type => "checkbox"} 
+			.stars
+				= image_tag "star.png"
 
-		.nav-menu
-			%ul.nav.nav-pills
-				%li
-					%a{href: "/"} Home
-				%li
-					%a{href: "#."} Favorites
-				%li
-					%a{href: "#."} Sale
-				%li
-					%a{href: "#."} Reviews
-				%li
-					%a{href: "#."} Trending
-				%li
-					%a{href: "#."} Browse
-				%li
-					%a{href: "#."} New
-				%li
-					%a{href: "#."} Post
-				%li
-					%a{href: "#."} Learn
+		.form-group
+			%label Price
+			%br
+			%input{:type => "checkbox"} 
+			>$100
+			%br
+			%input{:type => "checkbox"} 
+			>$200
+			%br
+			%input{:type => "checkbox"} 
+			>$300
+			%br
+			%input{:type => "checkbox"} 
+			>$400
+		.form-group
+			%label Administered By
+			%br
+			%input{:type => "checkbox"} 
+			Dermatologist
+			%br
+			%input{:type => "checkbox"} 
+			MD
+			%br
+			%input{:type => "checkbox"} 
+			PA
+			
+	.col-md-8
+		#results
+			.sort-box
+				.sort-box-inner
+					%span.pull-left{style: "margin-left: 40px;"}	Sort By: 
 
-		.row#search-content
-			.col-md-4
-				= image_tag 'map.png'
-				%br
-				%br
-				.form-group
-					%label Search By Name
-					= text_field_tag :name, nil, :placeholder => "Doctor Name"
-				.form-group
-					%label{style: "font-weight: normal;"} Filter By
-				.form-group
-					%label Star Rating
-					%br
-					%input{:type => "checkbox"} 
-					.stars
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-					%br
-					%input{:type => "checkbox"} 
-					.stars
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-					%br
-					%input{:type => "checkbox"} 
-					.stars
-						= image_tag "star.png"
-						= image_tag "star.png"
-						= image_tag "star.png"
-					%br
-					%input{:type => "checkbox"} 
-					.stars
-						= image_tag "star.png"
-						= image_tag "star.png"
-					%br
-					%input{:type => "checkbox"} 
-					.stars
-						= image_tag "star.png"
+					%ul.nav.nav-pills
+						%li
+							Rating
+						%li
+							Price
+						%li
+							Most Popular
 
-				.form-group
-					%label Price
-					%br
-					%input{:type => "checkbox"} 
-					>$100
-					%br
-					%input{:type => "checkbox"} 
-					>$200
-					%br
-					%input{:type => "checkbox"} 
-					>$300
-					%br
-					%input{:type => "checkbox"} 
-					>$400
-				.form-group
-					%label Administered By
-					%br
-					%input{:type => "checkbox"} 
-					Dermatologist
-					%br
-					%input{:type => "checkbox"} 
-					MD
-					%br
-					%input{:type => "checkbox"} 
-					PA
-					
-			.col-md-8
-				#results
-					.sort-box
-						.sort-box-inner
-							%span.pull-left{style: "margin-left: 40px;"}	Sort By: 
-
-							%ul.nav.nav-pills
-								%li
-									Rating
-								%li
-									Price
-								%li
-									Most Popular
-
-					- if @doctors.blank?
-						.result-box
-							%h3{style: "text-align: center;"} No Doctor Found
-					- else
-						- @doctors.each do |doctor|
-							.result-box
-								.result-image.pull-left
-									= image_tag "result-image.png"
-								.result-info
-									%span.doctor-name
-										= doctor.name
-									%br
-									%span.map
-										= image_tag "bullet.png"
-										Map
-									%br
-									.price
-										$533 $545
-									.booking
-										BOOK NOW>>
+			- if @doctors.blank?
+				.result-box
+					%h3{style: "text-align: center;"} No Doctor Found
+			- else
+				- @doctors.each do |doctor|
+					.result-box
+						.result-image.pull-left
+							= image_tag "result-image.png"
+						.result-info
+							%span.doctor-name
+								= doctor.name
+							%br
+							%span.map
+								= image_tag "bullet.png"
+								Map
+							%br
+							.price
+								$533 $545
+							.booking
+								BOOK NOW>>
 
 
 

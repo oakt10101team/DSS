@@ -15,12 +15,18 @@ html, body {
 	min-height: 100%;
 }
 
+
+#home-page-container .nav-box a {
+	color: #515151;
+}
+
 .nav-box {
 	float: right;
 	margin: 25px;
 	padding: 8px;
 	background: rgba(255, 255, 255, 0.7);
 	font-weight: bold;
+	color: #515151;
 }
 
 .search-box {
@@ -86,6 +92,10 @@ html, body {
 	padding: 8px;
 	color: #ffffff;
 	font-size: 18px;
+}
+
+#results-page .top-nav-box a {
+	color: #ffffff;
 }
 
 #results-page .top-search-box {
@@ -215,4 +225,14 @@ label {
 	padding: 40px 10px 10px 10px;
 	font-size: 16px;
 	color: #91BF00;
+}
+
+.form-panel {
+	border-color: #91BF00;
+	margin-top: 50px;
+}
+
+.form-panel-heading {
+	background-color: #91BF00 !important;
+	border-color: #91BF00 !important;
 }

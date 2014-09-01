@@ -9,14 +9,63 @@
 <body>
 
 <div class="container">
-	<% flash.each do |name, msg| %>
-		<% if flash[:notice] %>
-    	<%= content_tag :div, msg, class: "alert alert-info centered" %>
-		<% else %>
-    	<%= content_tag :div, msg, class: "alert alert-warning centered" %>
-		<% end %>
+  <% if !(params[:controller] == 'welcome' && params[:action] == 'index') %>
+    <div class="nav-bar" id="results-page">
+      <div class="container">
+        <div class="top-search-box">
+          <%= form_tag search_results_path, method: :get do %>
+            <%= select_tag(:procedure, options_for_select(@procedures.collect {|p| [ p.name, p.id ] }.insert(0, ["Select Procedure" , ""]), selected: params[:procedure] ) ) %>
+            <%= text_field_tag :city, params[:city], :placeholder => "City" %>
+            <%= submit_tag 'SEARCH', name: nil, class: 'search-button' %>
+          <% end %>
+        </div>
+        <div class="top-nav-box">
+          <% if current_user %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'SIGN UP', new_user_registration_path %>
+            |
+            <%= link_to 'LOGIN', new_user_session_path %>
+          <% end %>
+          | VENDORS
+        </div>
+        <div class="nav-menu">
+          <ul class="nav nav-pills">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#.">Favorites</a>
+            </li>
+            <li>
+              <a href="#.">Sale</a>
+            </li>
+            <li>
+              <a href="#.">Reviews</a>
+            </li>
+            <li>
+              <a href="#.">Trending</a>
+            </li>
+            <li>
+              <a href="#.">Browse</a>
+            </li>
+            <li>
+              <a href="#.">New</a>
+            </li>
+            <li>
+              <a href="#.">Post</a>
+            </li>
+            <li>
+              <a href="#.">Learn</a>
+            </li>
+          </ul>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  <% else %>
+    <%= yield %>
   <% end %>
-	<%= yield %>
 </div>
 
 </body>
